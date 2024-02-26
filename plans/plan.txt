@@ -1,0 +1,12 @@
+Build everything using object orriented programing best practices.
+
+Learn how to use GitHub as a code repo.
+
+Learn how to use AI to help code.
+
+FEATURE LIST:
+1.Clicker
+2.imcremeant for each click
+3.time limit
+4.rating based on score
+5.reset button
