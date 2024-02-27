@@ -39,19 +39,22 @@
             </div>
             <div class="col-sm">
               <button id="clickMe" style="font-size: 50px; padding: 10px 20px;">Click Me!</button>
+              <br>
+              <button id="resetMe" style="font-size: 50px; padding: 10px 20px;">Reset</button>
             </div>
             <div class="col-sm">
 
             </div>
           </div>
 
-        <!-- Include the external game.js file -->
-        <script src="game.js"></script>
+
+
 
     </div>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    <script src="/public/scripts.js"></script>
+    <script src="/public/js/game.js"></script>
 </body>
 </html>

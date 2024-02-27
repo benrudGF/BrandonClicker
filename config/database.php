@@ -1,0 +1,1 @@
+I'm building this project to learn OOP best practices. I need to set up a PDO db connection. Teach me how to organize my code to establish a DB connection using OOP Principals.
