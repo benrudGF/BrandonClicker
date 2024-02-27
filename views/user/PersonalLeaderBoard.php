@@ -22,9 +22,9 @@
         <!-- Page content-->
         <div id="pageContent" class="container">
             <div class="text-center mt-5">
-                <h1>My Profile</h1>
-                <p"lead">Here you will see your profile and other components!</p>
-                <h1>Ready to make your account look fabulous!</h1>
+                <h1>My Leader Board</h1>
+                <p"lead">Here you will see the top clicking speed you ever got!</p>
+                <h1>Ready to beat the record!!!</h1>
             </div>
         </div>
         <!-- Bootstrap core JS-->

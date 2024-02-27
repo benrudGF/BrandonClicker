@@ -23,8 +23,8 @@
 				<div id="pageContent" class="container">
 						<div class="text-center mt-5">
 								<h1>Leader Board</h1>
-								<p"lead">Get ready to test your clicking speed!!!</p>
-								<h1>Ready. Set. CLICK!</h1>
+								<p"lead">Here you will see the top clicking speed throughout the game!</p>
+								<h1>Ready to beat the record!!!</h1>
 						</div>
 				</div>
 				<!-- Bootstrap core JS-->

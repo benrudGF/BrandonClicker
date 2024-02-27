@@ -22,9 +22,22 @@
         <!-- Page content-->
         <div id="pageContent" class="container">
             <div class="text-center mt-5">
-                <h1>My Profile</h1>
-                <p"lead">Here you will see your profile and other components!</p>
-                <h1>Ready to make your account look fabulous!</h1>
+                <h1>Game Time</h1>
+                <p class="lead">Click the button to start the game</p>
+                <h1>Good luck, you will need it.</h1>
+
+                <div id="timer" style="font-size:64px;">30</div>
+                <script>
+                    let countdown = 30;
+                    const timer = setInterval(() => {
+                        countdown--;
+                        document.getElementById('timer').innerText = countdown;
+                        if (countdown === 0) {
+                            clearInterval(timer);
+                            alert('Your time is Up');
+                        }
+                    }, 1000);
+                </script>
             </div>
         </div>
         <!-- Bootstrap core JS-->
