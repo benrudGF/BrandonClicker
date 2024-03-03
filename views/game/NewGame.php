@@ -22,28 +22,53 @@
     <!-- Page content-->
     <div id="pageContent" class="container">
 
-          <div class="row mt-3">
-            <div class="col-sm">
-                <div id="scoreGame" style="font-size:64px;">0</div>
-            </div>
-            <div class="col-sm">
-              <h2>Player's Name</h2>
-            </div>
-            <div class="col-sm">
-                <div id="timer" style="font-size:64px;"></div>
-            </div>
-          </div>
-        <div class="row mt-3">
-            <div class="col-sm">
+         <!DOCTYPE html>
+         <html>
+           <head>
+             <title>Timer Page</title>
+           </head>
+           <body>
+             <h1>Timer/clicker</h1>
+             <div id="timer">30</div>
+             <div id="score">0</div>
+             <hr>
+             <button id="clicker">Click Me!</button>
+             <!-- Add the reset button -->
+             <button id="reset">Reset</button>
+             <script>
+               var isTimerRunning = false;
+               var countdown;
 
-            </div>
-            <div class="col-sm">
-              <button id="clickMe" style="font-size: 50px; padding: 10px 20px;">Click Me!</button>
-            </div>
-            <div class="col-sm">
+               document.getElementById('clicker').addEventListener('click', function() {
+                   if (!isTimerRunning) {
+                       var timer = document.getElementById('timer');
+                       countdown = setInterval(function() {
+                           timer.textContent = parseInt(timer.textContent) - 1;
+                           if (parseInt(timer.textContent) === 0) {
+                               clearInterval(countdown);
+                           }
+                       }, 1000);
+                       isTimerRunning = true;
+                   }
+               });
 
-            </div>
-          </div>
+             document.getElementById('clicker').addEventListener('click', function() {
+                 var score = document.getElementById('score');
+                 if (parseInt(document.getElementById('timer').textContent) !== 0) {
+                     score.textContent = parseInt(score.textContent) + 1;
+                 }
+             });
+
+             // Reset button functionality
+             document.getElementById('reset').addEventListener('click', function() {
+                 clearInterval(countdown); // Stop the countdown
+                 document.getElementById('timer').textContent = '30'; // Reset the timer
+                 document.getElementById('score').textContent = '0'; // Reset the score
+                 isTimerRunning = false; // Set the timer running state to false
+             });
+             </script>
+           </body>
+         </html>
 
         <!-- Include the external game.js file -->
         <script src="game.js"></script>

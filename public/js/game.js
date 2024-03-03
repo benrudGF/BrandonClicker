@@ -1,51 +1,78 @@
-class Game {
-		constructor() {
-				this.score = 0;
-				this.timer = null;
-				this.timeElapsed = 0;
-				this.scoreElement = document.getElementById('scoreGame');
-				this.timerElement = document.getElementById('timer');
-				this.setupEventListeners();
-		}
+class ScoreCounter {
+    constructor(scoreElementId) {
+        this.score = 0;
+        this.scoreElement = document.getElementById(scoreElementId);
+        this.updateScoreDisplay();
+    }
 
-		incrementScore() {
-				this.score += 1;
-				this.scoreElement.textContent = this.score;
-		}
+    incrementScore() {
+        this.score++;
+        this.updateScoreDisplay();
+    }
 
-		startTimer() {
-				if (this.timer === null) {
-						this.timer = setInterval(() => {
-								this.timeElapsed += 1;
-								this.timerElement.textContent = this.timeElapsed;
-						}, 1000);
-				}
-		}
+    resetScore() {
+        this.score = 0;
+        this.updateScoreDisplay();
+    }
 
-		resetGame() {
-				if (this.timer !== null) {
-						clearInterval(this.timer);
-						this.timer = null;
-				}
-				this.timeElapsed = 0;
-				this.timerElement.textContent = '';
-				this.score = 0;
-				this.scoreElement.textContent = this.score;
-		}
-
-		setupEventListeners() {
-				document.getElementById('clickMe').addEventListener('click', () => {
-						this.incrementScore();
-						this.startTimer();
-				});
-
-				document.getElementById('resetMe').addEventListener('click', () => {
-						this.resetGame();
-				});
-		}
+    updateScoreDisplay() {
+        this.scoreElement.innerText = this.score;
+    }
 }
 
-// When the DOM is fully loaded, create an instance of the Game class
+class Timer {
+    constructor(timerElementId) {
+        this.timerElement = document.getElementById(timerElementId);
+        this.startTime = null;
+        this.intervalId = null;
+        this.start();
+    }
+
+    start() {
+        this.startTime = Date.now();
+        this.intervalId = setInterval(() => {
+            this.updateTimer();
+        }, 1000);
+    }
+
+    stop() {
+        clearInterval(this.intervalId);
+    }
+
+    reset() {
+        this.stop();
+        this.start();
+    }
+
+    updateTimer() {
+        const elapsedTime = Math.floor((Date.now() - this.startTime) / 1000);
+        this.timerElement.innerText = elapsedTime + 's';
+    }
+}
+
+class Game {
+    constructor() {
+        this.scoreCounter = new ScoreCounter('scoreGame');
+        this.timer = new Timer('timer');
+        this.setupEventListeners();
+    }
+
+    setupEventListeners() {
+        const clickMeButton = document.getElementById('clickMe');
+        clickMeButton.addEventListener('click', () => {
+            this.scoreCounter.incrementScore(); // Corrected to increment the score correctly
+        });
+
+        const resetMeButton = document.getElementById('resetMe');
+        resetMeButton.addEventListener('click', () => {
+            this.scoreCounter.resetScore();
+            this.timer.reset();
+            this.timer.stop();
+        });
+    }
+}
+
+// Initialize the game when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
-		const clickerGame = new Game();
+    const game = new Game();
 });
