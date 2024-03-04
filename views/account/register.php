@@ -16,7 +16,7 @@
     <body>
         <!-- Responsive navbar-->
         <?php
-         require_once 'components/Navigation.php';
+            require_once $_SERVER['DOCUMENT_ROOT'] . '/components/Navigation.php';
          $navigation = new Navigation();
          $navigation->render();
          ?>
@@ -26,33 +26,39 @@
 
             <div class="text-center mt-5">
                 <h1>Welcome to Clicker.IO</h1>
-                <h2>Get ready to test your clicking speed!!!</h2>                
-                <form action="/handlers/loginHandler.php" method="post">
+                <h2>Choose to log In or Sign Up</h2>
+
+
+               
+                <form action="/handlers/registrationHandler.php" method="post">
+                    <p>Enter your Emailaddress:
+                    <input type="email" name="email" placeholder="Type your Emailaddress here"></p>
                     
-                    <p>Enter your username:</p>
-                    <input type="text" name="username" placeholder="Type your username here">
-    
-                    <p>Enter your Password:</p>
-                    <input type="password" name="password" placeholder="Type your password here">
+                    <p>Enter your username:
+                    <input type="text" name="username" placeholder="Type your username here"></p>
+
+                    <p>Enter your Password:
+                    <input type="password" name="password" placeholder="Type your password here"></p>
+
+                    <p>Verify your Password:
+                    <input type="password" name="passwordV" placeholder="Retype your password here"></p>
                     <p></p>
 
-                    
-                    <input type="submit" value="Log In" name="BTN_login">
 
-                    <p>Or <a href='/views/account/register.php'>Sign Up here</a></p> 
+                    <input type="submit" value="Sign Up" name="BTN_Signup">
 
                     <hr>
                        <?php
-                       if (isset($_SESSION['message']['loggedIn'])) {
-                           echo $_SESSION['message']['loggedIn'];
-                           $_SESSION['message']['loggedIn'] = '';
+                       if (isset($_SESSION['message']['signupError'])) {
+                           echo $_SESSION['message']['signupError'];
+                           $_SESSION['message']['signupError'] = '';
                        }
                        ?>
 
-                    
+
                 </form>
 
-                
+
             </div>
         </div>
         <!-- Bootstrap core JS-->

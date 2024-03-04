@@ -26,20 +26,24 @@
 
             <div class="text-center mt-5">
                 <h1>Welcome to Clicker.IO</h1>
-                <h2>Get ready to test your clicking speed!!!</h2>                
+                <h2>Choose to log In or Sign Up</h2>
+
+
+               
                 <form action="/handlers/loginHandler.php" method="post">
+                    <p>Enter your Emailaddress:</p>
+                    <input type="email" name="email" placeholder="Type your Emailaddress here">
                     
                     <p>Enter your username:</p>
                     <input type="text" name="username" placeholder="Type your username here">
-    
+
                     <p>Enter your Password:</p>
                     <input type="password" name="password" placeholder="Type your password here">
                     <p></p>
 
-                    
-                    <input type="submit" value="Log In" name="BTN_login">
 
-                    <p>Or <a href='/views/account/register.php'>Sign Up here</a></p> 
+                    <input type="submit" value="Log In" name="BTN_login">
+                    <input type="submit" value="Sign Up" name="BTN_Signup">
 
                     <hr>
                        <?php
@@ -47,12 +51,16 @@
                            echo $_SESSION['message']['loggedIn'];
                            $_SESSION['message']['loggedIn'] = '';
                        }
+                        if (isset($_SESSION['message']['SignedIn'])) {
+                             echo $_SESSION['message']['SignedIn'];
+                             $_SESSION['message']['SignedIn'] = '';
+                         }
                        ?>
 
-                    
+
                 </form>
 
-                
+
             </div>
         </div>
         <!-- Bootstrap core JS-->

@@ -17,7 +17,7 @@ class Navigation {
                                 <li><a class="dropdown-item" href="/views/user/PersonalLeaderBoard.php">My Leader Board</a></li>
                                 <li><a class="dropdown-item" href="/views/user/profile.php">Profile Edit</a></li>
                                 <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="/views/user/signout.php">Log Out</a></li>
+                                <li><a class="dropdown-item" href="/views/account/register.php">Log Out</a></li>
                             </ul>
                         </li>
                     </ul>
