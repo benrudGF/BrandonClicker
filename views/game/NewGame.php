@@ -1,3 +1,5 @@
+<?php require $_SERVER['DOCUMENT_ROOT'] . '/functions.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,6 +30,13 @@
              <title>Timer Page</title>
            </head>
            <body>
+               <?php
+               if (isset($_SESSION['message']['loggedIn'])) {
+                   echo $_SESSION['message']['loggedIn'];
+                   $_SESSION['message']['loggedIn'] = '';
+               }
+               ?>
+               
              <h1>Timer/clicker</h1>
              <div id="timer">30</div>
              <div id="score">0</div>
